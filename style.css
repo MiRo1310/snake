@@ -1,0 +1,33 @@
+*{
+    box-sizing: border-box;
+}
+body{
+    
+    background-color: lightgrey;
+    
+}
+body main {
+    display: flex;
+    width: 1000px;
+    margin: 0 auto;
+}
+
+#valueGame {
+    
+    color: black;
+    background-color: gray;
+    width: 200px;    
+    
+}
+#valueGame h1{
+    margin: 1rem;
+    
+}
+#valueGame p#Count {
+    margin: 1rem;
+    padding: 1rem;
+    background-color: lightcyan;
+    font-size: 1.5rem;
+    font-weight: bold;
+    
+}
