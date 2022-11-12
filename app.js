@@ -1,7 +1,8 @@
 const canvas = document.getElementById("field");
 const ctx = canvas.getContext("2d");
 const counter = document.getElementById("Count");
-const list = document.getElementById("valueGame")
+const list = document.getElementById("valueGame");
+const snakeColor= ["#9c4f96", "#ff6355","#fba949", "#fae442","#8bd448", "#2aa8f2"]
 
 
 // Background
@@ -9,6 +10,7 @@ canvas.height = 800;
 canvas.width = 800;
 list.style.height = "800px";
 
+let backgroundColor = "rgb(60,60,60)";
 let cols = 30;
 let rows = 30;
 let colsWidth = canvas.width / cols;
@@ -22,13 +24,50 @@ let jsonSnake;
 let food = {}
 let count;
 
+let inputName;
 
-start()
+let elInputName = document.getElementById("inputName");
+let setName = document.getElementById("setName");
+let textWarn = document.querySelector("p.warning")
+let field_newGame = document.getElementById("newGame");
+let btn_ok = document.getElementById("btn_ok");
+let btn_abbrechen = document.getElementById("btn_abbrechen");
+
+setName.addEventListener("click", (evt)=>{
+    if (elInputName.value == ""){
+        textWarn.classList.remove("display_none");
+        
+    }else{
+        inputName = elInputName.value;
+        elInputName.value = "";
+        document.getElementById("fieldSetName").classList.add("display_none");
+        document.getElementById("newGame").classList.remove("display_none");
+        
+        [...document.querySelectorAll(".player")].map(element =>{
+            element.innerText = inputName;
+        })
+    }
+
+})
+
+btn_ok.addEventListener("click", ()=>{
+    field_newGame.style.display = "none";
+    start()
+})
+document.getElementById("btn_abbrechen").addEventListener("click", ()=>{
+    document.getElementById("newGame").classList.add("display_none")
+    document.getElementById("fieldSetName").classList.remove("display_none")
+    
+})
+
+// Hintergrund anlegen
+ctx.fillStyle = backgroundColor;
+ctx.fillRect(0, 0, canvas.width, canvas.height)
 
 function start() {
     if (true) {
         foodCollected = false;
-        intervallTime = 220;
+        intervallTime = 180;
         jsonSnake = [{ x: 19, y: 6 }]
         direction = "LEFT";
         count = 1;        
@@ -104,18 +143,22 @@ function gameOver() {
         jsonSnake[0].y > cols-1 ||
         dublicatedParts) {
             clearInterval(interval);
-        start()
+        field_newGame.style.display = "block";
         
     }
 
 }
 
 function draw() {
-    ctx.fillStyle = "black";
+    ctx.fillStyle = backgroundColor;
     ctx.fillRect(0, 0, canvas.width, canvas.height)
-
+    let indexElement = 0;
     jsonSnake.forEach((element) => {
-        addElement(element.x, element.y, "white");
+        if (indexElement == 0) {color = "white"}
+        else{
+            color = snakeColor[indexElement % snakeColor.length]}
+        indexElement++;        
+        addElement(element.x, element.y, color);
     })
     addElement(food.x, food.y, "yellow");
 
