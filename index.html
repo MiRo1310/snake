@@ -16,15 +16,22 @@
         </span>
         <div id="valueGame">
             <h1>Score</h1>
-           <p id="Count"></p> 
+           <p id="Count">0</p> 
+           <p class="scoreText">Name: <span class="player"></span></p>
         </div>
     </main>
-    <div id="newGame">
-        <h1>Möchten Sie ein neues Spiel starten?</h1>
-        <label for="ok">OK</label>
-        <input type="button" name="ok" class="btn">
-        <label for="abbrechen">Abbrechen</label>
-        <input type="button" name="abbrechen" class="btn">
+    <div id ="fieldSetName" class="popUp">
+        <input type="text" id="inputName" placeholder="Geben Sie Ihren Namen ein!">
+        <p class="warning display_none">Bitte geben Sie erst einen Namen ein!</p>
+        <br>
+        <button id="setName">Los geht´s!</button>
+    </div>
+    <div id="newGame" class="popUp display_none">
+        <h1>Möchten Sie ein neues Spiel starten, <span class="player"></span>?</h1>
+        
+        <input type="button" name="ok" class="btn" id="btn_ok"value="OK">
+        
+        <input type="button" name="abbrechen" class="btn" id="btn_abbrechen" value="Abbrechen">
     </div>
     
     

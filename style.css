@@ -1,22 +1,29 @@
-*{
-    box-sizing: border-box;
+:root{
+    --blue:  black;
+    --lightgrey : rgb(255, 255, 255);
+    --background : rgb(150,150,150);
+    --border: black;
 }
+
 body{
-    
-    background-color: lightgrey;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    background-color: var(--lightgrey);
     
 }
 body main {
     display: flex;
-    width: 1000px;
+    width: 1100px;
     margin: 0 auto;
 }
 
+
 #valueGame {
     
-    color: black;
-    background-color: gray;
-    width: 200px;    
+    color: var(--blue);
+    background-color: var(--background);
+    width: 300px;   
+    border: 2px solid var(--border) ;
+    border-left: 0; 
     
 }
 #valueGame h1{
@@ -26,8 +33,66 @@ body main {
 #valueGame p#Count {
     margin: 1rem;
     padding: 1rem;
-    background-color: lightcyan;
+    background-color: var(--lightgrey);
     font-size: 1.5rem;
     font-weight: bold;
+    border: 0.2rem solid var(--border);
+    border-radius: 0.5rem;
     
 }
+
+.scoreText {
+    margin: 1rem
+}
+
+/* Canvas */
+canvas {
+    border: 2px solid var(--border)
+}
+
+/* Feld Abfrage für den Namen */
+#inputName{
+    margin: 1rem;    
+    padding: 1rem;
+    font-size: 1.2rem;
+}
+#setName{
+    margin: 1rem;
+    font-size: 1.2rem;
+    cursor:pointer;
+}
+.warning {
+    color: rgb(189, 18, 18);
+}
+/* Feld Abfrage für neues Spiel */
+.popUp {
+    background-color: var(--lightgrey);
+    padding: 2rem;
+    width: 500px;    
+    position: absolute;
+    top: 300px ;
+    left: 30%;
+    text-align: center;
+    border: 0.2rem solid var(--border);
+    border-radius: 2rem;
+    
+}
+.popUp h1{
+    color: var(--blue);   
+}
+.btn{
+    width: 180px;
+    padding: 1rem;
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin:1rem;
+    border: 0.2rem solid var(--border);
+    border-radius: 0.5rem;
+    cursor: pointer;
+}
+
+/* Allgemein */
+.display_none {
+    display: none;
+}
+
